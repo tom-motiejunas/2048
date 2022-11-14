@@ -83,10 +83,8 @@ export default class Game {
       this.state.addRandomValues();
     }
     this.board.updateBoard(this.state.boardValues);
-    if (
-      !this.gameLogic.matchesAvailable(this.state.boardValues) &&
-      this.state.isFull()
-    ) {
+
+    if (this.gameLogic.isGameLost(this.state.boardValues)) {
       this.endGame();
     }
   }

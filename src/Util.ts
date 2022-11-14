@@ -37,4 +37,8 @@ export default class Util {
     }
     return randomPositions;
   }
+
+  isArrayFull(array: any[][]) {
+    return this.getEmpty2DArrayValues(array).length === 0;
+  }
 }

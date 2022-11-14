@@ -1,7 +1,14 @@
 import { ArrowKeyCodes } from "./Game";
+import Util from "./Util";
 // TODO Refactor this file
 
 export default class GameLogic {
+  util;
+
+  constructor() {
+    this.util = new Util();
+  }
+
   combine(direction: String, boardValues: number[][]) {
     if (direction === ArrowKeyCodes.ArrowRight) {
       for (let i = 0; i < boardValues.length; i++) {
@@ -177,5 +184,15 @@ export default class GameLogic {
       }
     }
     return false;
+  }
+  isGameLost(boardValues: number[][]) {
+    if (
+      !this.matchesAvailable(boardValues) &&
+      this.util.isArrayFull(boardValues)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

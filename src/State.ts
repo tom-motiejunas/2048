@@ -15,10 +15,7 @@ export default class State {
     this.initialValues = [2, 4];
   }
 
-  public isFull(): boolean {
-    return this.util.getEmpty2DArrayValues(this.boardValues).length === 0;
-  }
-
+  // TODO move to game logic
   public addRandomValues(quantity = 1): number[][] {
     const emptyBoardValues = this.util.getEmpty2DArrayValues(this.boardValues);
 
@@ -36,6 +33,7 @@ export default class State {
     return this._boardValues;
   }
 
+  // Move to game logic
   public reset() {
     this._boardValues = [
       [0, 0, 0, 0],
