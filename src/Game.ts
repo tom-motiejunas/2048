@@ -76,7 +76,7 @@ export default class Game {
         );
         break;
       default:
-        break;
+        return;
     }
     this.state.boardValues = result.boardValues;
     if (result.changed) {
