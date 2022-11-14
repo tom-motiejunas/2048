@@ -1,20 +1,15 @@
-import Tiles from "./Tiles";
 import Util from "./Util";
 
 export default class Board {
-  tiles;
-  initialTileValues;
   util;
   size;
 
   constructor(size: number) {
-    this.tiles = new Tiles();
-    this.initialTileValues = [2, 4];
     this.util = new Util();
     this.size = size;
   }
   clearBoard() {
-    const allTiles = this.tiles.getAllTiles();
+    const allTiles = Array.from(document.querySelectorAll(".game-board .box"));
     allTiles.forEach((el) => (el.textContent = ""));
   }
 
@@ -41,7 +36,7 @@ export default class Board {
   }
 
   updateBoard(boardValues: number[][]) {
-    const allTiles = this.tiles.getAllTiles();
+    const allTiles = Array.from(document.querySelectorAll(".game-board .box"));
     allTiles.forEach((el, index) => {
       const row = Math.floor(index / this.size);
       const column = index % this.size;

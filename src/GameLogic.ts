@@ -1,12 +1,9 @@
+import { ArrowKeyCodes } from "./Game";
 // TODO Refactor this file
 
 export default class GameLogic {
   combine(direction: String, boardValues: number[][]) {
-    switch (direction) {
-      case "RIGHT":
-    }
-
-    if (direction === "RIGHT") {
+    if (direction === ArrowKeyCodes.ArrowRight) {
       for (let i = 0; i < boardValues.length; i++) {
         for (let j = boardValues[i].length - 1; j >= 0; j--) {
           if (!boardValues[i][j]) {
@@ -24,7 +21,7 @@ export default class GameLogic {
         }
       }
     }
-    if (direction === "LEFT") {
+    if (direction === ArrowKeyCodes.ArrowLeft) {
       for (let i = 0; i < boardValues.length; i++) {
         for (let j = 0; j < boardValues[i].length; j++) {
           if (boardValues[i][j]) {
@@ -42,7 +39,7 @@ export default class GameLogic {
         }
       }
     }
-    if (direction === "UP") {
+    if (direction === ArrowKeyCodes.ArrowUp) {
       for (let i = 0; i < boardValues.length; i++) {
         for (let j = 0; j < boardValues[i].length; j++) {
           if (!boardValues[i][j]) {
@@ -62,7 +59,7 @@ export default class GameLogic {
       }
     }
 
-    if (direction === "DOWN") {
+    if (direction === ArrowKeyCodes.ArrowDown) {
       for (let i = boardValues.length - 1; i >= 0; i--) {
         for (let j = 0; j < boardValues[i].length; j++) {
           if (!boardValues[i][j]) {
@@ -85,7 +82,7 @@ export default class GameLogic {
   }
 
   push(direction: String, boardValues: number[][]) {
-    if (direction === "RIGHT") {
+    if (direction === ArrowKeyCodes.ArrowRight) {
       for (let i = 0; i < boardValues.length; i++) {
         for (let j = boardValues[i].length - 1; j >= 0; j--) {
           if (!boardValues[i][j]) {
@@ -100,7 +97,7 @@ export default class GameLogic {
         }
       }
     }
-    if (direction === "LEFT") {
+    if (direction === ArrowKeyCodes.ArrowLeft) {
       for (let i = 0; i < boardValues.length; i++) {
         for (let j = 0; j < boardValues[i].length; j++) {
           if (!boardValues[i][j]) {
@@ -115,7 +112,7 @@ export default class GameLogic {
         }
       }
     }
-    if (direction === "UP") {
+    if (direction === ArrowKeyCodes.ArrowUp) {
       for (let i = 0; i < boardValues.length; i++) {
         for (let j = 0; j < boardValues[i].length; j++) {
           if (!boardValues[i][j]) {
@@ -130,7 +127,7 @@ export default class GameLogic {
         }
       }
     }
-    if (direction === "DOWN") {
+    if (direction === ArrowKeyCodes.ArrowDown) {
       for (let i = boardValues.length - 1; i >= 0; i--) {
         for (let j = 0; j < boardValues[i].length; j++) {
           if (!boardValues[i][j]) {

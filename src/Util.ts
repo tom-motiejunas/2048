@@ -4,7 +4,6 @@ export default class Util {
   }
 
   getRandom2DArrayIndex(array: any[][]) {
-    console.log(array);
     return [
       this.getRandomArrayIndex(array),
       this.getRandomArrayIndex(array[0]),
@@ -22,5 +21,20 @@ export default class Util {
       }
     }
     return emptyBoardValues;
+  }
+
+  getRandomArrayPositions(array: any[][], quantity: number) {
+    const randomPositions: number[] = [];
+    const emptyBoardValues = this.getEmpty2DArrayValues(array);
+
+    for (let i = 0; i < quantity; i++) {
+      const randomPosition = this.getRandomArrayIndex(emptyBoardValues);
+      if (randomPositions.includes(randomPosition)) {
+        i--;
+        continue;
+      }
+      randomPositions.push(randomPosition);
+    }
+    return randomPositions;
   }
 }

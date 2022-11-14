@@ -2,7 +2,7 @@ import Board from "./Board";
 import GameLogic from "./GameLogic";
 import State from "./State";
 
-enum ArrowKeyCodes {
+export enum ArrowKeyCodes {
   ArrowUp = "ArrowUp",
   ArrowDown = "ArrowDown",
   ArrowLeft = "ArrowLeft",
@@ -22,7 +22,7 @@ export default class Game {
   constructor() {
     this.state = new State();
     this.gameLogic = new GameLogic();
-    this.board = new Board(4);
+    this.board = new Board(this.state.boardValues[0].length);
   }
   startGame() {
     this.board.initializeBoard();
@@ -52,16 +52,28 @@ export default class Game {
 
     switch (keyCode) {
       case ArrowKeyCodes.ArrowUp:
-        result = this.gameLogic.move("UP", this.state.boardValues);
+        result = this.gameLogic.move(
+          ArrowKeyCodes.ArrowUp,
+          this.state.boardValues
+        );
         break;
       case ArrowKeyCodes.ArrowDown:
-        result = this.gameLogic.move("DOWN", this.state.boardValues);
+        result = this.gameLogic.move(
+          ArrowKeyCodes.ArrowDown,
+          this.state.boardValues
+        );
         break;
       case ArrowKeyCodes.ArrowLeft:
-        result = this.gameLogic.move("LEFT", this.state.boardValues);
+        result = this.gameLogic.move(
+          ArrowKeyCodes.ArrowLeft,
+          this.state.boardValues
+        );
         break;
       case ArrowKeyCodes.ArrowRight:
-        result = this.gameLogic.move("RIGHT", this.state.boardValues);
+        result = this.gameLogic.move(
+          ArrowKeyCodes.ArrowRight,
+          this.state.boardValues
+        );
         break;
       default:
         break;

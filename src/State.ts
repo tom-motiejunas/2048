@@ -21,23 +21,13 @@ export default class State {
 
   public addRandomValues(quantity = 1): number[][] {
     const emptyBoardValues = this.util.getEmpty2DArrayValues(this.boardValues);
-    if (quantity > emptyBoardValues.length) {
-      // end game TODO move to game class
-      return [[]];
-    }
-    const randomPositions: number[] = [];
 
-    // TODO refactor
-    for (let i = 0; i < quantity; i++) {
-      const randomPosition = this.util.getRandomArrayIndex(emptyBoardValues);
-      if (randomPositions.includes(randomPosition)) {
-        i--;
-        continue;
-      }
-      randomPositions.push(randomPosition);
-    }
+    const randomArrayPositions: number[] = this.util.getRandomArrayPositions(
+      this.boardValues,
+      quantity
+    );
 
-    randomPositions.forEach((el) => {
+    randomArrayPositions.forEach((el) => {
       const [i, j] = emptyBoardValues[el];
       this._boardValues[i][j] =
         this.initialValues[this.util.getRandomArrayIndex(this.initialValues)];
